@@ -1,0 +1,43 @@
+<br><br>
+<div class="login-form" >
+    <form   (ngSubmit) = "saveUser()">
+        <h2 class="text-center">Register</h2>       
+        <div class="form-group">
+            <input [(ngModel)] = "user.username" name = "username" type="text" class="form-control" placeholder="Username" required="required">
+        </div>
+        <br>
+        <div class="form-group">
+            <input [(ngModel)] = "user.email" name = "email" type="text" class="form-control" placeholder="Email" required="required">
+        </div>
+        <br>
+        <div class="form-group">
+            <input [(ngModel)] = "user.password" name = "password" type="password" class="form-control" placeholder="Password" required="required">
+        </div>
+        <br>
+        <div class="form-group">
+            <input [(ngModel)] = "user.phone" name = "phone" type="text" class="form-control" placeholder="phone" required="required">
+        </div>
+        <br>
+
+        <h6>Address</h6>
+        <div class="form-group">
+            <input [(ngModel)] = "user.city" name = "city" type="text" class="form-control" placeholder="city" required="required">
+        </div>
+        <br>
+        <div class="form-group">
+            <input [(ngModel)] = "user.street" name = "street" type="text" class="form-control" placeholder="street" required="required">
+        </div>
+        <br>
+        <div class="form-group">
+            <input [(ngModel)] = "user.zipcode" name = "zipcode" type="text" class="form-control" placeholder="zipCode" required="required">
+        </div>
+        <br>
+        
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
+        </div>
+               
+    </form>
+    <p class="text-center"><a routerLink="/login">Back to Login</a></p>
+</div>

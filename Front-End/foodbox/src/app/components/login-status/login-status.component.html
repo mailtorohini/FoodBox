@@ -1,0 +1,7 @@
+<div class="form-header">
+<button *ngIf="username == null"  routerLink="/login"    class="au-btn-submit login">Login</button>
+
+<button *ngIf="username != null" routerLink="/products" (click)="logout()"  class="au-btn-submit logout">Logout</button>
+
+
+</div>

@@ -1,0 +1,41 @@
+<br><br>
+<div class="login-form" style="width:44%" >
+    <form   (ngSubmit) = "updateProduct()">
+        <h2 class="text-center">Update Product</h2>       
+        <div class="form-group">
+            Name:<input [(ngModel)] = "product.name" name = "name" type="text" class="form-control" placeholder={{product.name}} required="required">
+        </div>
+        <br>
+        <div class="form-group">
+            Description:
+            <input [(ngModel)] = "product.description" name = "description" type="text" class="form-control" placeholder={{product.description}} required="required" >
+        </div>
+        <br>
+        <div class="form-group">
+            Price:
+            <input [(ngModel)] = "product.price" name = "price" type="text" class="form-control" placeholder={{product.price}} required="required">
+        </div>
+        <br>
+        <div class="form-group">
+            Image URL:
+            <input [(ngModel)] = "product.imageUrl" name = "imageUrl" type="text" class="form-control" placeholder={{product.imageUrl}} required="required">
+        </div>
+        <br>
+        <div class="form-group">
+            Cuisine:
+            <br>
+            <select [(ngModel)]="product.cuisine" name = "cuisine">
+                <option *ngFor="let cuisine of productCuisines" [ngValue]="cuisine.id">{{cuisine.cuisine_name}}</option>
+            </select>
+             
+        </div>
+
+        <br>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-success btn-block">Update</button>
+        </div>
+               
+    </form>
+    <p class="text-center"><a routerLink="/login">Back to Login</a></p>
+</div>

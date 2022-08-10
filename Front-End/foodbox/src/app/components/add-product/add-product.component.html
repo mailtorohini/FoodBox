@@ -1,0 +1,42 @@
+<br><br>
+<div class="login-form" style="width:44%" >
+    <form   (ngSubmit) = "handleAddProduct()">
+        <h2 class="text-center">Add a New Product</h2>       
+        <div class="form-group">
+            Name:<input [(ngModel)] = "product.name" name = "name" type="text" class="form-control"   required="required">
+        </div>
+        <br>
+        <div class="form-group">
+            Description:
+            <input [(ngModel)] = "product.description" name = "description" type="text" class="form-control"   required="required" >
+        </div>
+        <br>
+        <div class="form-group">
+            Price:
+            <input [(ngModel)] = "product.price" name = "price" type="text" class="form-control"   required="required">
+        </div>
+        <br>
+        <div class="form-group">
+            Image URL:
+            <input [(ngModel)] = "product.imageUrl" name = "imageUrl" type="text" class="form-control" required="required">
+        </div>
+        <br>
+        <div class="form-group">
+            Cuisine:
+            <br>
+            <select [(ngModel)]="product.cuisine" name = "selectedCuisine">
+                <option *ngFor="let cuisine of productCuisines" [ngValue]="cuisine.id">{{cuisine.cuisine_name}}</option>
+            </select>
+             
+        </div>
+        <br>
+
+        
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-success btn-block">Add</button>
+        </div>
+               
+    </form>
+    
+</div>

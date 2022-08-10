@@ -1,0 +1,19 @@
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+
+        <div style="margin-left: 15px;">
+        <h6  style="font-size:22px;">
+            <p>Thank you <b>{{username}}</b> for purchasing our products. Your support and trust in us are much appreciated. </p>
+            <p>The total price of your bill is <b>${{totalPrice}}</b> </p>
+            <p>The products will be dilivred to you soon to your address as following:</p>
+            <p><b>city:</b> {{this.users[0]?.city}}</p>
+            <p><b>street:</b> {{this.users[0]?.street}}</p>
+            <p><b>zipcode:</b> {{this.users[0]?.zipcode}}</p>
+        </h6>
+    </div>
+        <a (click)="backHome()"><button class="au-btn-submit" style="width:181px; height: 55px; background: green; color: white"  >Confirm</button></a>
+             
+        </div>
+    </div>
+</div>

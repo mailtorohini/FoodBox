@@ -1,0 +1,102 @@
+<div class="main-content" >
+
+    <div class="section-content section-content-p30">
+        
+        <div class="container-fluid">
+            <div style="margin-top: -23px;" *ngIf="username != null" class="alert alert-warning col-xs-12" role="alert">
+                Welecome {{username}}. </div>
+            <div class="row">
+
+                <!-- loop over the collection of products -->
+                <div *ngFor="let tempProduct of products" class="col-md-3">
+
+                    <div class="card" style="width: 12rem; margin: 21px 18px;" >
+
+                        <a routerLink="/products/{{ tempProduct.id }}">
+                            <img style="width:240px;height:160px;" class="card-img-top"
+                                src="{{ tempProduct.imageUrl }}">
+                        </a>
+
+
+                        <div >
+                            <a style="margin-left: 13px; margin-top: 23px;" routerLink="/products/{{ tempProduct.id }}">
+                                <h6 style="font-size:20px;"> {{ tempProduct.name }}</h6>
+                            </a>
+                        </div>
+                        <div class="card-body" style="margin-top: -23px;"  >
+                            <div class="price card-text">{{ tempProduct.price | currency:'USD' }}</div>
+                            <button *ngIf="username != 'admin'" (click)="addToCart(tempProduct)"
+                                class="btn btn-primary btn-sm">Add to cart</button>
+                                
+                            <button *ngIf="username == 'admin'" routerLink="/update-product/{{ tempProduct.id }}"
+                                class="btn btn-success btn-sm">Edit</button>
+                                &nbsp; 
+                            <button *ngIf="username == 'admin'" (click)="deleteProduct(tempProduct.id)"
+                                class="btn btn-danger btn-sm">Remove</button>
+
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+                <!-- if products empty then display a message-->
+                <div *ngIf="products?.length == 0" class="alert alert-danger col-md-12" role="alert">
+                    No products found.
+                </div>
+
+            </div>
+
+            <!-- begin footer -->
+            <div class="footer-pagination">
+                <div class="row">
+                    <div class="col-md-6"></div>
+
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6" style="float: right;">
+
+                                <ngb-pagination [(page)]="thePageNumber" [pageSize]="thePageSize"
+                                    [collectionSize]="theTotalElements" [maxSize]="5" [boundaryLinks]="true"
+                                    (pageChange)="listProducts()">
+
+                                </ngb-pagination>
+
+                            </div>
+
+                            <div class="col-md-3  " style="float: left;">
+                                <span class="mr-2">Sort by</span>
+
+                                <select (change)="updateSortingMethod($event.target.value)">
+                                    
+                                    <option>Name</option>
+                                    <option>First Created</option>
+                                    <option selected="true">Last Created</option>
+                                     
+                                </select>
+                            </div>
+
+                            <div class="col-md-3  " style="float: left;">
+                                <span class="mr-2">Page Size</span>
+
+                                <select (change)="updatePageSize($event.target.value)">
+                                    <option>2</option>
+                                    <option selected="true">5</option>
+                                    <option>10</option>
+                                    <option>20</option>
+                                    <option>50</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- end footer -->
+
+        </div>
+    </div>
+</div>
